@@ -1,0 +1,305 @@
+/*
+ * Styles for index.html
+ *
+*/
+
+#map, html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: Arial, sans serif;
+    font-size: 10px;
+}
+
+#map {
+    position: relative;
+}
+
+
+.button {
+    position: absolute;
+    height: 20px;
+    padding: 20px 10px;
+    border: 1px solid rgba(0,0,0,.1);
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px; 
+    border-radius: 30px; 
+    background: #f5f5f5 linear-gradient(#f4f4f4, #f1f1f1);
+    font: 12px Arial, Helvetica, sans-serif; 
+    font-weight: bold; 
+    text-align: center;
+    color: #444444;
+    cursor: pointer;
+    
+    &:active{
+        border: 1px solid #cccccc;
+        background: #eeeeee linear-gradient(#eeeeee, #e0e0e0);
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.1) inset; 
+        -moz-box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;  
+        box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
+        color: #333333;
+    }
+}
+
+
+// gamburger menu
+.menu {
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 42px;
+    padding: 9px 0;
+    z-index: 1;
+    
+    
+    div, div:before, div:after {
+        content: "";
+        position: absolute;
+        top: 26px;
+        left: 10px;
+        width: 40px;
+        height: 7px;
+        background-color: #444444;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px; 
+        border-radius: 5px; 
+        -webkit-transition: all 0.6s ease;
+           -moz-transition: all 0.6s ease;
+             -o-transition: all 0.6s ease;
+                transition: all 0.6s ease;
+    }
+    
+    div:before {
+        top: -12px;
+        left: 0;
+    }
+    
+    div:after {
+        top: 12px;
+        left: 0;
+    }
+    
+    
+    &.open {
+        div {
+            background-color: transparent;
+        }
+        
+        div:before {
+            left: 0;
+            top: 0;
+            -webkit-transform: rotate(-45deg);
+               -moz-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                 -o-transform: rotate(-45deg);
+                    transform: rotate(-45deg);
+        }
+        
+        div:after {
+            left: 0;
+            top: 0;
+            -webkit-transform:rotate(45deg);
+               -moz-transform:rotate(45deg);
+                -ms-transform:rotate(45deg);
+                 -o-transform:rotate(45deg);
+                    transform:rotate(45deg);
+        }
+    }
+}
+
+
+// search bar
+.search {
+    position: absolute;
+    height: 60px;
+    padding-left: 20px;
+    background-color: #ffffff;
+    border: 1px solid rgba(0,0,0,.1);
+    -webkit-border-radius: 30px;
+       -moz-border-radius: 30px; 
+            border-radius: 30px; 
+    overflow: hidden;
+
+    
+    input {
+        height: 50px;
+        width: 200px;
+        margin: 2px;
+        line-height: 20px;
+        font-size: 18px;
+        text-align: center;
+        -webkit-transition: all 0.6s ease;
+           -moz-transition: all 0.6s ease;
+             -o-transition: all 0.6s ease;
+                transition: all 0.6s ease;
+    }
+    
+    
+    #search-button {
+        position: relative;
+        float: right;
+        margin-top: -1px;
+    }
+}
+
+
+// buttons
+.clear, .add, .search {
+    opacity: 0;
+    width: 40px;
+    top: 10px;
+    left: 10px;
+    font-size: 1px;
+    -webkit-transition: all 0.6s ease;
+       -moz-transition: all 0.6s ease;
+         -o-transition: all 0.6s ease;
+            transition: all 0.6s ease;
+}
+
+.menu.open~.clear {
+    opacity: 1;
+    width: 90px;
+    left: 200px;
+    font-size: 12px;
+}
+
+.menu.open~.add {
+    opacity: 1;
+    width: 90px;
+    left: 80px;
+    font-size: 12px;
+}
+
+.menu.open~.search {
+    opacity: 1;
+    top: 80px;
+    left: 10px;
+    width: 280px;
+}
+
+
+.exit {
+    width: 100px;
+    margin-left: -60px;
+    bottom: 15px;
+    left: 50%;
+}
+
+
+.zoom {
+    bottom: 15px;
+    height: 30px;
+    width: 60px;
+    padding: 15px 0;
+ }
+
+.plus {
+    right: 10px;
+}
+
+.minus {
+    left: 10px;
+}
+
+
+// adaptation
+@media screen and (min-width: 480px) and (max-height: 400px) { 
+    .plus {
+        top: 10px;
+        bottom: auto;
+    }
+    
+    .minus {
+        left: auto;
+        right: 10px;
+    }
+
+    
+    .exit {
+        left: 10px;
+        margin-left: 0;
+    }
+}
+
+
+@media screen and (min-width: 600px) {
+    .menu.open~.clear {
+        left: 170px;
+    }
+    
+    .menu.open~.add {
+        width: 60px;
+    }
+    
+    .menu.open~.search {
+        top: 10px;
+        left: 290px;
+        width: 280px;
+    }
+
+    
+    .plus {
+//        top: 10px;
+        bottom: 75px;
+    }
+    
+    .minus {
+        left: auto;
+        right: 75px;
+    }
+ 
+ 
+    .exit {
+        left: 10px;
+        margin-left: 0;
+    }
+}
+
+
+@media screen and (min-width: 768px) { 
+    .menu.open~.search {
+        top: 10px;
+        left: 290px;
+        width: 445px;
+
+        input {
+            width: 365px;
+        }
+    }
+}
+
+
+@media screen and (min-width: 1024px) { 
+    .menu {
+        display: none;
+    }
+    
+    
+    .clear {
+        opacity: 1;
+        width: 90px;
+        left: auto;
+        right: 10px;
+        font-size: 12px;
+    }
+
+    .add {
+        opacity: 1;
+        width: 90px;
+        left: 10px;
+        font-size: 12px;
+    }
+    
+    .search {
+        opacity: 1;
+        top: 10px;
+        left: 50%;
+        margin-left: -223px;
+        width: 446px;
+
+        input {
+            width: 366px;
+        }
+    }
+}
+
